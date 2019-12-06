@@ -13,26 +13,26 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "com.example.sportsbetting"})
+@ComponentScan(basePackages = { "com.example.sportsbetting" })
 public class WebMvcConfig implements WebMvcConfigurer {
- 
-   @Bean
-   public InternalResourceViewResolver resolver() {
-      InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-      resolver.setViewClass(JstlView.class);
-      resolver.setPrefix("/WEB-INF/views/");
-      resolver.setSuffix(".jsp");
-      return resolver;
-   }
-   
-   public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-       registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/");
-       registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-   }
-   
-   @Override
-   public void addViewControllers(ViewControllerRegistry registry) {
-       registry.addViewController("/login").setViewName("login");
-       registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-   }
+
+    @Bean
+    public InternalResourceViewResolver resolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setViewClass(JstlView.class);
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        return resolver;
+    }
+
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/");
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/login").setViewName("login");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+    }
 }

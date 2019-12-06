@@ -1,22 +1,19 @@
 package com.example.sportsbetting;
 
-import com.example.sportsbetting.builder.BetBuilder;
-import com.example.sportsbetting.builder.OutComeBuilder;
-import com.example.sportsbetting.builder.OutComeOddBuilder;
-import com.example.sportsbetting.builder.SportEventBuilder;
-import com.example.sportsbetting.config.JpaConfig;
-import com.example.sportsbetting.domain.*;
-import org.springframework.transaction.annotation.Transactional;
-
-
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
 
-public  class App {
+import com.example.sportsbetting.domain.OutcomeOdd;
+import com.example.sportsbetting.domain.Player;
+import com.example.sportsbetting.domain.Result;
+import com.example.sportsbetting.domain.SportEvent;
+import com.example.sportsbetting.domain.User;
+import com.example.sportsbetting.domain.Wager;
+
+public class App {
 
     public static SportsBettingService sportsBettingService;
     View view;
@@ -25,6 +22,7 @@ public  class App {
     List<Wager> wagers;
     List<Result> results;
     OutcomeOdd selectedOutComeOdd;
+
     public App(SportsBettingService sportsBettingService, View view) {
         this.sportsBettingService = sportsBettingService;
         this.view = view;
@@ -32,69 +30,60 @@ public  class App {
         wagers = new ArrayList<Wager>();
     }
 
-
     void play() {
         sportevents = sportsBettingService.findAllSportEvents();
         Player player = this.sportsBettingService.findPlayer(0);
         String name = player.getName();
-  		String birth = player.getBirth().toString();
-  		String accountnumber = player.getAccountNumber().toString();
-  		String currency = player.getCurrency().toString();
-  		String balance = player.getBalance().toString();
+        String birth = player.getBirth().toString();
+        String accountnumber = player.getAccountNumber().toString();
+        String currency = player.getCurrency().toString();
+        String balance = player.getBalance().toString();
         createPlayer();
         view.printWelcomeMessage(this.player);
         view.printBalance(this.player);
         doBetting();
         calculateResults();
         this.player = sportsBettingService.findPlayer(0);
-String id =String.valueOf(player.getId());
-        this.sportsBettingService.updatePlayer(player.getName(), player.getBirth().toString(), player.getAccountNumber().toString(), player.getCurrency().toString(), player.getBalance().toString(),id);
+        String id = String.valueOf(player.getId());
+        this.sportsBettingService
+            .updatePlayer(player.getName(), player.getBirth().toString(), player.getAccountNumber().toString(), player.getCurrency().toString(),
+                player.getBalance().toString(), id);
         printResults();
-
-
 
     }
 
     void createPlayer() {
-    User player = this.view.readPlayerData();
-    this.sportsBettingService.savePlayer(player);
-    this.player = this.sportsBettingService.findPlayer(0);
+        User player = this.view.readPlayerData();
+        this.sportsBettingService.savePlayer(player);
+        this.player = this.sportsBettingService.findPlayer(0);
     }
 
     void doBetting() {
 
         do {
             this.selectedOutComeOdd = view.selectOutComeOdd(this.sportevents);
-            if(selectedOutComeOdd != null)
-            {
+            if (selectedOutComeOdd != null) {
                 this.WagerCreation();
             }
-        }while(selectedOutComeOdd != null);
-
-
-
+        } while (selectedOutComeOdd != null);
 
     }
-    void calculateResults(){
+
+    void calculateResults() {
 
         this.sportsBettingService.CalculateResults();
     }
+
     @Transactional
     void printResults() {
 
-
-            view.printResults(this.player, this.wagers);
-
-
-
+        view.printResults(this.player, this.wagers);
 
     }
 
-    public static List<Wager> findAllWagers()
-    {
+    public static List<Wager> findAllWagers() {
         return sportsBettingService.findAllWagers();
     }
-
 
     private void WagerCreation() {
         BigDecimal value = BigDecimal.valueOf(0);
@@ -103,12 +92,11 @@ String id =String.valueOf(player.getId());
         do {
             value = view.readWagerAmount();
             //not integer or negative
-            if (value.compareTo(BigDecimal.valueOf(-1)) <=0)
-            {
+            if (value.compareTo(BigDecimal.valueOf(-1)) <= 0) {
                 continue;
             }
-            if (value.compareTo(player.getBalance()) <= 0 && player.getBalance().compareTo(BigDecimal.valueOf(0)) >0 && !(value.compareTo(BigDecimal.ZERO) == 0))
-            {
+            if (value.compareTo(player.getBalance()) <= 0 && player.getBalance().compareTo(BigDecimal.valueOf(0)) > 0 && !(value.compareTo(BigDecimal.ZERO)
+                == 0)) {
                 enoughbalance = true;
                 player.setBalance(player.getBalance().subtract(value));
                 Wager wager = new Wager();
@@ -119,7 +107,7 @@ String id =String.valueOf(player.getId());
                 wager.setProcessed(false);
                 //wager.setTimestampCreated();
                 //wager.setWin();
-               sportsBettingService.saveWager(wager);
+                sportsBettingService.saveWager(wager);
                 //this.wagers.add(wager);
                 this.wagers = sportsBettingService.findAllWagers();
                 //this.wagers = sportsBettingService.findAllWagers();
@@ -127,23 +115,14 @@ String id =String.valueOf(player.getId());
                 sportsBettingService.savePlayer(player);
                 view.printBalance(this.player);
 
-
+            } else if ((value.compareTo(BigDecimal.ZERO) == 0)) {
+                break;
+            } else {
+                view.printNotEnoughBalance(this.player);
             }
 
-            else if((value.compareTo(BigDecimal.ZERO) == 0))
-            {
-                    break;
-            }
-
-            else {
-                    view.printNotEnoughBalance(this.player);
-            }
-
-
-        }while( player.getBalance().compareTo(BigDecimal.valueOf(0)) >0 && (value.compareTo(BigDecimal.valueOf(0)) <= 0 || !enoughbalance));
-
+        } while (player.getBalance().compareTo(BigDecimal.valueOf(0)) > 0 && (value.compareTo(BigDecimal.valueOf(0)) <= 0 || !enoughbalance));
 
     }
-
 
 }

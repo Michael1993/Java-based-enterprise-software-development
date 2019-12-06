@@ -1,13 +1,13 @@
 package com.example.sportsbetting.builder;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.sportsbetting.domain.Bet;
 import com.example.sportsbetting.domain.EventType;
 import com.example.sportsbetting.domain.Result;
 import com.example.sportsbetting.domain.SportEvent;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SportEventBuilder {
     String title;
@@ -21,7 +21,8 @@ public class SportEventBuilder {
         this.title = title;
         this.bets = new ArrayList<Bet>();
     }
-    public SportEventBuilder startDate(LocalDateTime startDate){
+
+    public SportEventBuilder startDate(LocalDateTime startDate) {
         this.startDate = startDate;
         return this;
     }
@@ -32,21 +33,22 @@ public class SportEventBuilder {
         return this;
     }
 
-    public SportEventBuilder bets(List<Bet> bets){
+    public SportEventBuilder bets(List<Bet> bets) {
         this.bets = bets;
         return this;
     }
-    public SportEventBuilder result(Result result){
+
+    public SportEventBuilder result(Result result) {
         this.result = result;
         return this;
     }
-    
-    public SportEventBuilder eventtype(EventType eventtype){
+
+    public SportEventBuilder eventtype(EventType eventtype) {
         this.eventtype = eventtype;
         return this;
     }
 
-    public SportEvent build(){
+    public SportEvent build() {
 
         SportEvent sportEvent = new SportEvent();
         sportEvent.setTitle(this.title);

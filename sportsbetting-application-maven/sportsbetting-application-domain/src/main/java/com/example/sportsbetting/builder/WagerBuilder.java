@@ -2,63 +2,57 @@ package com.example.sportsbetting.builder;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
-
-import com.example.sportsbetting.domain.Bet;
-import com.example.sportsbetting.domain.BetType;
 import com.example.sportsbetting.domain.Currency;
-import com.example.sportsbetting.domain.Outcome;
 import com.example.sportsbetting.domain.OutcomeOdd;
 import com.example.sportsbetting.domain.Player;
-import com.example.sportsbetting.domain.SportEvent;
 import com.example.sportsbetting.domain.Wager;
 
 public class WagerBuilder {
-	  BigDecimal amount;
-	    LocalDateTime timestampCreated;
-	    boolean processed;
-	    boolean win;
-	    OutcomeOdd odd;
-	    Currency currency;
-	    Player player;
+    BigDecimal amount;
+    LocalDateTime timestampCreated;
+    boolean processed;
+    boolean win;
+    OutcomeOdd odd;
+    Currency currency;
+    Player player;
 
     public WagerBuilder(BigDecimal amount) {
-        
-      this.amount = amount;
+
+        this.amount = amount;
     }
-    public WagerBuilder timestampCreated(LocalDateTime timestampCreated){
+
+    public WagerBuilder timestampCreated(LocalDateTime timestampCreated) {
         this.timestampCreated = timestampCreated;
         return this;
     }
-    public WagerBuilder processed(boolean processed){
+
+    public WagerBuilder processed(boolean processed) {
         this.processed = processed;
         return this;
     }
-    public WagerBuilder win(boolean win){
+
+    public WagerBuilder win(boolean win) {
         this.win = win;
         return this;
     }
-    public WagerBuilder odd( OutcomeOdd odd){
+
+    public WagerBuilder odd(OutcomeOdd odd) {
         this.odd = odd;
         return this;
     }
-    public WagerBuilder currency( Currency currency){
+
+    public WagerBuilder currency(Currency currency) {
         this.currency = currency;
         return this;
     }
-    
+
     public WagerBuilder player(Player player) {
-    this.player = player;
-    return this;
+        this.player = player;
+        return this;
     }
 
-    public Wager build(){
+    public Wager build() {
 
         Wager wager = new Wager();
         wager.setAmount(this.amount);

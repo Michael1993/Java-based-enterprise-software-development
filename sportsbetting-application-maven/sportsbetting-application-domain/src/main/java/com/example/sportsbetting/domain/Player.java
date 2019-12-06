@@ -1,12 +1,15 @@
 package com.example.sportsbetting.domain;
 
-import javax.persistence.*;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -22,6 +25,7 @@ public class Player {
     LocalDate birth;
     @Enumerated(EnumType.STRING)
     Currency currency;
+
     public int getId() {
         return id;
     }
@@ -29,6 +33,7 @@ public class Player {
     public void setId(int id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }

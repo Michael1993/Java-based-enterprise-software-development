@@ -1,10 +1,17 @@
 package com.example.sportsbetting.domain;
-import org.hibernate.annotations.Cascade;
-import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 public class Wager {
@@ -19,11 +26,11 @@ public class Wager {
     boolean win;
     @OneToOne(fetch = FetchType.EAGER)
     //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
-    //@JoinColumn(name = "wager_outcomeOdd_id")
-    OutcomeOdd odd;
+        //@JoinColumn(name = "wager_outcomeOdd_id")
+        OutcomeOdd odd;
     @OneToOne(fetch = FetchType.EAGER)
     //@JoinColumn(name = "wager_player_id")
-    Player player;
+        Player player;
     @Enumerated(EnumType.STRING)
     Currency currency;
 
@@ -34,6 +41,7 @@ public class Wager {
     public void setId(int id) {
         this.id = id;
     }
+
     public BigDecimal getAmount() {
         return amount;
     }
@@ -93,9 +101,9 @@ public class Wager {
     public void setCurrency(Currency currency) {
         this.currency = currency;
     }
-    
-    public String getEventTitle(){
-      return this.getOdd().getOutcome().getBet().getEvent().getTitle();
+
+    public String getEventTitle() {
+        return this.getOdd().getOutcome().getBet().getEvent().getTitle();
     }
-    
+
 }

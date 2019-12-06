@@ -1,12 +1,12 @@
 package com.example.sportsbetting.builder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.sportsbetting.domain.Bet;
 import com.example.sportsbetting.domain.BetType;
 import com.example.sportsbetting.domain.Outcome;
 import com.example.sportsbetting.domain.SportEvent;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class BetBuilder {
     String description;
@@ -18,20 +18,23 @@ public class BetBuilder {
         this.description = description;
         outcomes = new ArrayList<Outcome>();
     }
-    public BetBuilder event(SportEvent event){
+
+    public BetBuilder event(SportEvent event) {
         this.event = event;
         return this;
     }
-    public BetBuilder betType(BetType type){
+
+    public BetBuilder betType(BetType type) {
         this.type = type;
         return this;
     }
-    public BetBuilder outComes(List<Outcome> outcomes){
+
+    public BetBuilder outComes(List<Outcome> outcomes) {
         this.outcomes = outcomes;
         return this;
     }
 
-    public Bet build(){
+    public Bet build() {
 
         Bet bet = new Bet();
         bet.setDescription(this.description);

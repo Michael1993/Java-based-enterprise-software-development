@@ -1,10 +1,10 @@
 package com.example.sportsbetting.builder;
 
-import com.example.sportsbetting.domain.Currency;
-import com.example.sportsbetting.domain.Player;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import com.example.sportsbetting.domain.Currency;
+import com.example.sportsbetting.domain.Player;
 
 public class PlayerBuilder {
     String name;
@@ -16,7 +16,8 @@ public class PlayerBuilder {
     public PlayerBuilder(String name) {
         this.name = name;
     }
-    public PlayerBuilder accountnumber(Integer accountNumber){
+
+    public PlayerBuilder accountnumber(Integer accountNumber) {
         this.accountNumber = accountNumber;
         return this;
     }
@@ -27,16 +28,17 @@ public class PlayerBuilder {
         return this;
     }
 
-    public PlayerBuilder birth(LocalDate birth){
+    public PlayerBuilder birth(LocalDate birth) {
         this.birth = birth;
         return this;
     }
-    public PlayerBuilder currency(Currency currency){
+
+    public PlayerBuilder currency(Currency currency) {
         this.currency = currency;
         return this;
     }
 
-    public Player build(){
+    public Player build() {
 
         Player player = new Player();
         player.setName(this.name);

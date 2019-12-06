@@ -1,12 +1,16 @@
-
 package com.example.sportsbetting.domain;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Entity
 public class OutcomeOdd {
@@ -24,7 +28,7 @@ public class OutcomeOdd {
     @OneToOne(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     //@JoinColumn(name = "Outcome_id")
-    Outcome outcome;
+        Outcome outcome;
 
     public int getId() {
         return id;
@@ -60,7 +64,7 @@ public class OutcomeOdd {
 
     @Transactional
     public Outcome getOutcome() {
-       // outcome.getId();
+        // outcome.getId();
 
         return outcome;
     }

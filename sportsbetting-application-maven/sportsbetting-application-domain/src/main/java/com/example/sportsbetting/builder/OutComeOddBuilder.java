@@ -1,10 +1,10 @@
 package com.example.sportsbetting.builder;
 
-import com.example.sportsbetting.domain.Outcome;
-import com.example.sportsbetting.domain.OutcomeOdd;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import com.example.sportsbetting.domain.Outcome;
+import com.example.sportsbetting.domain.OutcomeOdd;
 
 public class OutComeOddBuilder {
 
@@ -17,7 +17,8 @@ public class OutComeOddBuilder {
         this.value = value;
 
     }
-    public OutComeOddBuilder validFrom(LocalDateTime validFrom){
+
+    public OutComeOddBuilder validFrom(LocalDateTime validFrom) {
         this.validFrom = validFrom;
         return this;
     }
@@ -27,13 +28,14 @@ public class OutComeOddBuilder {
         this.validUntil = validUntil;
         return this;
     }
+
     public OutComeOddBuilder outcome(Outcome outcome) {
 
         this.outcome = outcome;
         return this;
     }
 
-    public OutcomeOdd build(){
+    public OutcomeOdd build() {
 
         OutcomeOdd outcomeOdd = new OutcomeOdd();
         outcomeOdd.setValue(this.value);

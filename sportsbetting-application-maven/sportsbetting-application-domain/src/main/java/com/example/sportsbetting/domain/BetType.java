@@ -1,4 +1,5 @@
 package com.example.sportsbetting.domain;
+
 public enum BetType {
     WINNER,
     GOALS,

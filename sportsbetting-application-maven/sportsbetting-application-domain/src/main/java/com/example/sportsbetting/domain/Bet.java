@@ -1,10 +1,18 @@
 package com.example.sportsbetting.domain;
 
-import org.hibernate.annotations.Cascade;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Transactional
@@ -17,21 +25,21 @@ public class Bet {
 
     @OneToOne(fetch = FetchType.EAGER)
     //@JoinColumn(name = "event_id")
-    //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
-    SportEvent event;
+        //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
+        SportEvent event;
 
     @Enumerated(EnumType.STRING)
     BetType type;
 
-
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     //@OneToMany(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "bet_id")
-    List<Outcome> outcomes;
+        //@JoinColumn(name = "bet_id")
+        List<Outcome> outcomes;
 
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }

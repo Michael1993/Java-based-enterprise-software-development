@@ -1,7 +1,5 @@
 package com.example.sportsbetting.config;
 
-import javax.inject.Inject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,64 +10,59 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.example.sportsbetting.SportsBettingService;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan(basePackages = { "com.example.sportsbetting"})
+@ComponentScan(basePackages = { "com.example.sportsbetting" })
 @Import(SportsBettingService.class)
 public class WebSecurityConfig
-   extends WebSecurityConfigurerAdapter {
+    extends WebSecurityConfigurerAdapter {
 
-	
-	@Autowired
-	private SportsBettingService service;
-	
-	 @Bean("authenticationManager")
-	    @Override
-	    public AuthenticationManager authenticationManagerBean() throws Exception {
-	            return super.authenticationManagerBean();
-	    }
-	 
-	    @Bean
-	    public AuthenticationSuccessHandler myAuthenticationSuccessHandler(){
-	        return new MyAuthenticationSuccessHandler();
-	    }
-	
-  @Autowired
-  public void configureGlobal(AuthenticationManagerBuilder auth) {
-    try {
-    	 for(com.example.sportsbetting.domain.User user : service.findAllPlayers())	 {
-	    	  auth.inMemoryAuthentication().withUser(user.getEmail()).password("{noop}"+user.getPassword()).roles("USER");
-	      }
-//		auth.inMemoryAuthentication()
-//		    .withUser("user").password("{noop}password").roles("USER");
-		
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	   
-	}
-  }
-  
-//  @Bean
-//  public UserDetailsService userDetailsService() {
-//
-//      User.UserBuilder users = User.withDefaultPasswordEncoder();
-//      InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-//  
-//     
-//    	  
-//      //manager.createUser(users.username("admin").password("password").roles("USER", "ADMIN").build());
-//      return manager;
-//
-//  }
+    @Autowired
+    private SportsBettingService service;
+
+    @Bean("authenticationManager")
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler myAuthenticationSuccessHandler() {
+        return new MyAuthenticationSuccessHandler();
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) {
+        try {
+            for (com.example.sportsbetting.domain.User user : service.findAllPlayers()) {
+                auth.inMemoryAuthentication().withUser(user.getEmail()).password("{noop}" + user.getPassword()).roles("USER");
+            }
+            //		auth.inMemoryAuthentication()
+            //		    .withUser("user").password("{noop}password").roles("USER");
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+
+        }
+    }
+
+    //  @Bean
+    //  public UserDetailsService userDetailsService() {
+    //
+    //      User.UserBuilder users = User.withDefaultPasswordEncoder();
+    //      InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+    //
+    //
+    //
+    //      //manager.createUser(users.username("admin").password("password").roles("USER", "ADMIN").build());
+    //      return manager;
+    //
+    //  }
   
   
 	
@@ -93,32 +86,28 @@ public class WebSecurityConfig
 	      .and().httpBasic();
 	}
    */
- 
-//  protected void configure(HttpSecurity http) throws Exception {
-//	    http.authorizeRequests()
-//	      .anyRequest().authenticated()
-//	      .and().formLogin()
-//	      .loginPage("/login").permitAll();
-//	}
-	 
-  
-  protected void configure(HttpSecurity http) throws Exception {
-	    http.authorizeRequests()
-	      .antMatchers("/", "/login","/welcome","/add").access("hasRole('USER')")
-	      .antMatchers("/admin/**").hasRole("ADMIN")
-	      .and()
-	      .csrf().disable()
-	      .formLogin()
-	      .loginPage("/login")
-	      .permitAll()
-	      .successHandler(myAuthenticationSuccessHandler())
-	      .and()
-	      .logout()
-          .logoutUrl("/logout")
-          .logoutSuccessUrl("/login");
-	}
-  
 
-  
-  
+    //  protected void configure(HttpSecurity http) throws Exception {
+    //	    http.authorizeRequests()
+    //	      .anyRequest().authenticated()
+    //	      .and().formLogin()
+    //	      .loginPage("/login").permitAll();
+    //	}
+
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/", "/login", "/welcome", "/add").access("hasRole('USER')")
+            .antMatchers("/admin/**").hasRole("ADMIN")
+            .and()
+            .csrf().disable()
+            .formLogin()
+            .loginPage("/login")
+            .permitAll()
+            .successHandler(myAuthenticationSuccessHandler())
+            .and()
+            .logout()
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/login");
+    }
+
 }
