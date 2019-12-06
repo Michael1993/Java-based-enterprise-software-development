@@ -46,14 +46,8 @@ public class LoginController {
         User player = service.findPlayer(user.getId());
         model.addAttribute("player", player);
 
-        List<Currency> currencies = new ArrayList<Currency>();
-
-        currencies.add(Currency.HUF);
-        currencies.add(Currency.EUR);
-        currencies.add(Currency.USD);
-
         model.addAttribute("wagers", service.TableWagers(user.getId()));
-        model.addAttribute("currencies", currencies);
+        model.addAttribute("currencies", Currency.values());
 
         result.addAllObjects(model.asMap());
         result.setViewName("welcome");
@@ -61,7 +55,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void AddedData(HttpServletRequest request, HttpServletResponse response) {
+    public void saveData(HttpServletRequest request, HttpServletResponse response) {
 
         try {
             this.service.updatePlayer(request.getParameter("inputname")
@@ -79,12 +73,12 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public void DeleteData(HttpServletRequest request, HttpServletResponse response) {
+    public void deleteData(HttpServletRequest request, HttpServletResponse response) {
         String url = "welcome";
 
         try {
             String pa = request.getParameter("delete");
-            this.service.DeleteWager(Integer.parseInt(pa));
+            this.service.deleteWager(Integer.parseInt(pa));
             response.sendRedirect(url);
         } catch (IOException e) {
 

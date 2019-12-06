@@ -18,17 +18,13 @@ public class Outcome {
     @GeneratedValue
     private int id;
 
-    String description;
+    private String description;
 
     @OneToOne(fetch = FetchType.LAZY)
-    // @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-        //@JoinColumn(name = "bet_id")
-        Bet bet;
+    private Bet bet;
 
-    //@OneToMany(fetch = FetchType.LAZY)
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    //@JoinColumn(name = "Outcome_id")
-        List<OutcomeOdd> outcomeOdds;
+    private List<OutcomeOdd> outcomeOdds;
 
     public int getId() {
         return id;

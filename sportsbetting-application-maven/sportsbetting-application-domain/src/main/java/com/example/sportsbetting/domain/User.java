@@ -5,15 +5,11 @@ import javax.persistence.Entity;
 @Entity
 public class User extends Player {
 
-    String email;
-    String password;
+    private String email;
+    private String password;
 
     public String getEmail() {
         return email;
-    }
-
-    public User() {
-
     }
 
     public void setEmail(String email) {
@@ -31,10 +27,10 @@ public class User extends Player {
     public User(String email, String password, Player player) {
         this.setEmail(email);
         this.setPassword(password);
-        this.setPlayersparameters(player);
+        this.setPlayerParameters(player);
     }
 
-    public void setPlayersparameters(Player player) {
+    public void setPlayerParameters(Player player) {
         this.setAccountNumber(player.getAccountNumber());
         this.setBalance(player.getBalance());
         this.setBirth(player.getBirth());

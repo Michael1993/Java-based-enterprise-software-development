@@ -15,29 +15,24 @@ import com.example.sportsbetting.domain.Wager;
 
 public class App {
 
-    public static SportsBettingService sportsBettingService;
-    View view;
-    Player player;
-    List<SportEvent> sportevents;
-    List<Wager> wagers;
+    private SportsBettingService sportsBettingService;
+    private View view;
+    private Player player;
+    private List<SportEvent> sportevents;
+    private List<Wager> wagers;
     List<Result> results;
-    OutcomeOdd selectedOutComeOdd;
+    private OutcomeOdd selectedOutComeOdd;
 
     public App(SportsBettingService sportsBettingService, View view) {
         this.sportsBettingService = sportsBettingService;
         this.view = view;
-        sportevents = new ArrayList<SportEvent>();
-        wagers = new ArrayList<Wager>();
+        sportevents = new ArrayList<>();
+        wagers = new ArrayList<>();
     }
 
     void play() {
         sportevents = sportsBettingService.findAllSportEvents();
         Player player = this.sportsBettingService.findPlayer(0);
-        String name = player.getName();
-        String birth = player.getBirth().toString();
-        String accountnumber = player.getAccountNumber().toString();
-        String currency = player.getCurrency().toString();
-        String balance = player.getBalance().toString();
         createPlayer();
         view.printWelcomeMessage(this.player);
         view.printBalance(this.player);
@@ -71,7 +66,7 @@ public class App {
 
     void calculateResults() {
 
-        this.sportsBettingService.CalculateResults();
+        this.sportsBettingService.calculateResults();
     }
 
     @Transactional
@@ -81,7 +76,7 @@ public class App {
 
     }
 
-    public static List<Wager> findAllWagers() {
+    public List<Wager> findAllWagers() {
         return sportsBettingService.findAllWagers();
     }
 

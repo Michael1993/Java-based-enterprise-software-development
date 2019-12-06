@@ -10,16 +10,16 @@ import com.example.sportsbetting.domain.Result;
 import com.example.sportsbetting.domain.SportEvent;
 
 public class SportEventBuilder {
-    String title;
-    LocalDateTime startDate;
-    LocalDateTime endDate;
-    List<Bet> bets;
-    Result result;
-    EventType eventtype;
+    private String title;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+    private List<Bet> bets;
+    private Result result;
+    private EventType eventType;
 
     public SportEventBuilder(String title) {
         this.title = title;
-        this.bets = new ArrayList<Bet>();
+        this.bets = new ArrayList<>();
     }
 
     public SportEventBuilder startDate(LocalDateTime startDate) {
@@ -43,8 +43,8 @@ public class SportEventBuilder {
         return this;
     }
 
-    public SportEventBuilder eventtype(EventType eventtype) {
-        this.eventtype = eventtype;
+    public SportEventBuilder eventType(EventType eventType) {
+        this.eventType = eventType;
         return this;
     }
 
@@ -56,12 +56,8 @@ public class SportEventBuilder {
         sportEvent.setEndDate(this.endDate);
         sportEvent.setBets(this.bets);
         sportEvent.setResult(this.result);
-        sportEvent.setEventtype(this.eventtype);
+        sportEvent.setEventtype(this.eventType);
 
         return sportEvent;
-    }
-
-    private SportEventBuilder() {
-
     }
 }

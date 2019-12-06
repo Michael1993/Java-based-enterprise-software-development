@@ -8,6 +8,6 @@ import com.example.sportsbetting.domain.Wager;
 
 public interface WagerRepository extends CrudRepository<Wager, Integer> {
     @Override
-    public List<Wager> findAll();
+    List<Wager> findAll();
 
 }

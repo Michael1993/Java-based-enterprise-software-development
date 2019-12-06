@@ -9,16 +9,15 @@ import com.example.sportsbetting.domain.Player;
 import com.example.sportsbetting.domain.Wager;
 
 public class WagerBuilder {
-    BigDecimal amount;
-    LocalDateTime timestampCreated;
-    boolean processed;
-    boolean win;
-    OutcomeOdd odd;
-    Currency currency;
-    Player player;
+    private BigDecimal amount;
+    private LocalDateTime timestampCreated;
+    private boolean processed;
+    private boolean win;
+    private OutcomeOdd odd;
+    private Currency currency;
+    private Player player;
 
     public WagerBuilder(BigDecimal amount) {
-
         this.amount = amount;
     }
 
@@ -64,9 +63,5 @@ public class WagerBuilder {
         wager.setPlayer(this.player);
 
         return wager;
-    }
-
-    private WagerBuilder() {
-
     }
 }

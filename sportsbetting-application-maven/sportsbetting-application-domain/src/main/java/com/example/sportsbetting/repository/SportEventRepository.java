@@ -8,5 +8,5 @@ import com.example.sportsbetting.domain.SportEvent;
 
 public interface SportEventRepository extends CrudRepository<SportEvent, Integer> {
     @Override
-    public List<SportEvent> findAll();
+    List<SportEvent> findAll();
 }

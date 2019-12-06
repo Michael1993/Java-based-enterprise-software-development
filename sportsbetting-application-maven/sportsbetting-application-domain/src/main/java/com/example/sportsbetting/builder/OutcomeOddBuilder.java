@@ -6,30 +6,30 @@ import java.time.LocalDateTime;
 import com.example.sportsbetting.domain.Outcome;
 import com.example.sportsbetting.domain.OutcomeOdd;
 
-public class OutComeOddBuilder {
+public class OutcomeOddBuilder {
 
-    BigDecimal value;
-    LocalDateTime validFrom;
-    LocalDateTime validUntil;
-    Outcome outcome;
+    private BigDecimal value;
+    private LocalDateTime validFrom;
+    private LocalDateTime validUntil;
+    private Outcome outcome;
 
-    public OutComeOddBuilder(BigDecimal value) {
+    public OutcomeOddBuilder(BigDecimal value) {
         this.value = value;
 
     }
 
-    public OutComeOddBuilder validFrom(LocalDateTime validFrom) {
+    public OutcomeOddBuilder validFrom(LocalDateTime validFrom) {
         this.validFrom = validFrom;
         return this;
     }
 
-    public OutComeOddBuilder validUntil(LocalDateTime validUntil) {
+    public OutcomeOddBuilder validUntil(LocalDateTime validUntil) {
 
         this.validUntil = validUntil;
         return this;
     }
 
-    public OutComeOddBuilder outcome(Outcome outcome) {
+    public OutcomeOddBuilder outcome(Outcome outcome) {
 
         this.outcome = outcome;
         return this;
@@ -46,7 +46,7 @@ public class OutComeOddBuilder {
         return outcomeOdd;
     }
 
-    private OutComeOddBuilder() {
+    private OutcomeOddBuilder() {
 
     }
 }

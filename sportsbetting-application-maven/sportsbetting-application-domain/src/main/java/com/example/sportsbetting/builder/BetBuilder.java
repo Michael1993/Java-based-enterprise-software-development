@@ -9,14 +9,14 @@ import com.example.sportsbetting.domain.Outcome;
 import com.example.sportsbetting.domain.SportEvent;
 
 public class BetBuilder {
-    String description;
-    SportEvent event;
-    BetType type;
-    List<Outcome> outcomes;
+    private String description;
+    private SportEvent event;
+    private BetType type;
+    private List<Outcome> outcomes;
 
     public BetBuilder(String description) {
         this.description = description;
-        outcomes = new ArrayList<Outcome>();
+        outcomes = new ArrayList<>();
     }
 
     public BetBuilder event(SportEvent event) {
@@ -29,7 +29,7 @@ public class BetBuilder {
         return this;
     }
 
-    public BetBuilder outComes(List<Outcome> outcomes) {
+    public BetBuilder outcomes(List<Outcome> outcomes) {
         this.outcomes = outcomes;
         return this;
     }
@@ -43,9 +43,5 @@ public class BetBuilder {
         bet.setOutcomes(this.outcomes);
 
         return bet;
-    }
-
-    private BetBuilder() {
-
     }
 }

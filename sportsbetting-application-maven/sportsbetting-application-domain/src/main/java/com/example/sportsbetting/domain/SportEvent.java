@@ -10,34 +10,32 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class SportEvent {
     @Id
     @GeneratedValue
     private int id;
 
-    String title;
-    //@Temporal(TemporalType.TIME)
-    LocalDateTime startDate;
-    //@Temporal(TemporalType.TIME)
-    LocalDateTime endDate;
+    private String title;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
-    //@OneToMany(fetch = FetchType.LAZY)
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    // @OneToMany(mappedBy = "sportEvent")
     @JoinColumn(name = "event_id")
-    List<Bet> bets;
+    private List<Bet> bets;
 
     @OneToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "result_id")
-        Result result;
+    private Result result;
 
     @Enumerated(EnumType.STRING)
-    EventType eventtype;
+    private EventType eventtype;
 
     public void setId(int id) {
         this.id = id;

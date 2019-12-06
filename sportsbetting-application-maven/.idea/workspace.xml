@@ -1,11 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="08e44da6-0a67-460e-b822-2137e6102f22" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/BetBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/BetBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/OutComeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/OutcomeBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/OutComeOddBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/OutcomeOddBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/PlayerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/PlayerBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/SportEventBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/SportEventBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/WagerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/builder/WagerBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Bet.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Bet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/BetType.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/BetType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Currency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/EventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/EventType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/FootballSportEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/FootballSportEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Outcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Outcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/OutcomeOdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/OutcomeOdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/SportEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/SportEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/TennisSportEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/TennisSportEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/PlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/PlayerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/SportEventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/SportEventRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/WagerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/WagerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/SportsBettingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/SportsBettingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/controller/LoginController.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1Ubj2Ux37BUGD5MzLexQTj0YJ7Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="08e44da6-0a67-460e-b822-2137e6102f22" name="Default Changelist" comment="" />
+      <created>1575631981033</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575631981033</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

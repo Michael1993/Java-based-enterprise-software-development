@@ -18,13 +18,12 @@ public class Player {
     @Id
     @GeneratedValue
     private int id;
-    String name;
-    Integer accountNumber;
-    BigDecimal balance;
-    //@Temporal(TemporalType.DATE)
-    LocalDate birth;
+    private String name;
+    private Integer accountNumber;
+    private BigDecimal balance;
+    private LocalDate birth;
     @Enumerated(EnumType.STRING)
-    Currency currency;
+    private Currency currency;
 
     public int getId() {
         return id;

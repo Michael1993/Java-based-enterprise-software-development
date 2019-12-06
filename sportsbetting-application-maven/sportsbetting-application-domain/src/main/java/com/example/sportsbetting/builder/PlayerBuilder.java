@@ -7,17 +7,17 @@ import com.example.sportsbetting.domain.Currency;
 import com.example.sportsbetting.domain.Player;
 
 public class PlayerBuilder {
-    String name;
-    Integer accountNumber;
-    BigDecimal balance;
-    LocalDate birth;
-    Currency currency;
+    private String name;
+    private Integer accountNumber;
+    private BigDecimal balance;
+    private LocalDate birth;
+    private Currency currency;
 
     public PlayerBuilder(String name) {
         this.name = name;
     }
 
-    public PlayerBuilder accountnumber(Integer accountNumber) {
+    public PlayerBuilder accountNumber(Integer accountNumber) {
         this.accountNumber = accountNumber;
         return this;
     }
@@ -48,9 +48,5 @@ public class PlayerBuilder {
         player.setCurrency(this.currency);
 
         return player;
-    }
-
-    private PlayerBuilder() {
-
     }
 }

@@ -9,8 +9,8 @@ import com.example.sportsbetting.domain.User;
 public interface UserRepository extends CrudRepository<User, Integer> {
 
     @Override
-    public List<User> findAll();
+    List<User> findAll();
 
-    public List<User> findByEmailIs(String email);
+    List<User> findByEmailIs(String email);
 
 }
